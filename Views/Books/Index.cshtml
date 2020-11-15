@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BookManagement.Models.Book>
+
+@{
+    ViewBag.Title = "Book";
+}
+
+
+<article class="post">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col entry-header cf">
+            <h1>Book List</h1>
+        </div>
+        <div class="col post-content offset-2">
+            <h5>@Html.ActionLink("Create New", "Create")</h5>
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th><h5 class="white">Title</h5></th>
+                            <th><h5 class="white">Author</h5></th>
+                            <th><h5 class="white">ISBN</h5></th>
+                            <th><h5 class="white">Category</h5></th>
+                            <th><h5 class="white">Publisher</h5></th>
+                            <th><h5 class="white">Publication Year</h5></th>
+                            <th><h5 class="white">Shelf</h5></th>
+                            <th><h5 class="white">Stock</h5></th>
+                            <th><h5 class="white">Action</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Author.Name)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.ISBN)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Category.Name)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Publisher.Name)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.PublicationYear)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Shelf.Name)</h5>
+                                </td>
+                                <td>
+                                    <h5>@Html.DisplayFor(modelItem => item.Stock)</h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                        @*@Html.ActionLink("Details", "Details", new { id = item.ID }) |*@
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                    </h5>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</article>
+

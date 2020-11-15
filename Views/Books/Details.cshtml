@@ -1,0 +1,92 @@
+﻿@model BookManagement.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<article class="post">
+    <div class="row">
+        <div class="col entry-header cf">
+            <h1>Details</h1>
+        </div>
+        <div class="col post-content offset-2">
+            <div>
+                <h3>Book</h3>
+                <hr />
+                <dl class="dl-horizontal">
+                    <h4>
+                        <dt>
+                            Author
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Author.Name)
+                        </dd>
+
+                        <dt>
+                            Category
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Category.Name)
+                        </dd>
+
+                        <dt>
+                            Publisher
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Publisher.Name)
+                        </dd>
+
+                        <dt>
+                            Shelf
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Shelf.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ISBN)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ISBN)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.PublicationYear)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.PublicationYear)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Stock)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Stock)
+                        </dd>
+                    </h4>
+                </dl>
+            </div>
+            <br />
+            <h5>
+                |@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                @Html.ActionLink("Back to List", "Index")|
+            </h5>
+        </div>
+    </div>
+</article>
+

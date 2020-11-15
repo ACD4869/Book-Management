@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    @Styles.Render("~/design/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body data-spy="scroll" data-target="#nav-wrap">
+    <header class="mobile">
+        <div class="row">
+            <div class="col full">
+                <div class="logo"><p>AREA51</p></div>
+                <nav id="nav-wrap">
+                    <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a> <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+                    <ul id="nav" class="nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Book", "Index", "Books")</li>
+                        <li>@Html.ActionLink("Author", "Index", "Authors")</li>
+                        <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+                        <li>@Html.ActionLink("Publisher", "Index", "Publishers")</li>
+                        <li>@Html.ActionLink("Shelf", "Index", "Shelves")</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    @Scripts.Render("~/design/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

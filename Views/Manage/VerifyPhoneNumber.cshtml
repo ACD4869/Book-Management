@@ -1,0 +1,39 @@
+﻿@model BookManagement.Models.VerifyPhoneNumberViewModel
+@{
+    ViewBag.Title = "Verify Phone Number";
+}
+
+<article class="post">
+    <div class="row">
+        <div class="col entry-header cf">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        <div class="col post-content offset-2">
+
+            @using (Html.BeginForm("VerifyPhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("phoneNumber", @Model.PhoneNumber)
+                <h4>Enter verification code</h4>
+                <h5>@ViewBag.Status</h5>
+                <hr />
+                <h5 class="red">@Html.ValidationSummary("", new { @class = "text-danger" })</h5>
+                <div class="form-group">
+                    <h5>@Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })</h5>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Submit" />
+                    </div>
+                </div>
+            }
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+        </div>
+        </div>
+    </article>

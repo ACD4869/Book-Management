@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BookManagement.Models.Shelf>
+
+@{
+    ViewBag.Title = "Shelf";
+}
+
+<article class="post">
+    <div class="row">
+        <div class="col entry-header cf">
+            <h1>Shelves</h1>
+        </div>
+        <div class="col post-content offset-2">
+            <h5>@Html.ActionLink("Create New", "Create")</h5>
+            <div class="table-responsive table--no-card m-b-30">
+                <table class="table table-borderless table-striped table-earning">
+                    <thead>
+                        <tr>
+                            <th><h5 class="white">Name</h5></th>
+                            <th><h5 class="white">Action</h5></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <h5>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                    </h5>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</article>
